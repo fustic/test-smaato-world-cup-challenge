@@ -35,5 +35,14 @@ module.exports = {
         element.className += ' ' + className;
       }
     }
+  },
+  removeClassFromElement: function (element, className) {
+    if (element) {
+      if (element.classList) {
+        element.classList.remove(className);
+      } else {
+        element.className = element.className.replace(className, '');
+      }
+    }
   }
 };

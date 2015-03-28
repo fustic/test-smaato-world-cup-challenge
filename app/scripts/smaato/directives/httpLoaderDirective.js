@@ -1,5 +1,5 @@
 'use strict';
-
+var utils = require('../../common').utils;
 module.exports = ['$http' ,function ($http) {
   return {
     restrict: 'A',
@@ -11,9 +11,9 @@ module.exports = ['$http' ,function ($http) {
 
       scope.$watch(scope.isLoading, function (v) {
         if (v) {
-          elm.show();
+          utils.removeClassFromElement(elm[0], 'hidden');
         } else {
-          elm.hide();
+          utils.addClassToElement(elm[0], 'hidden');
         }
       });
     }

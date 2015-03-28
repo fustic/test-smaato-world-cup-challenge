@@ -15,6 +15,9 @@ a:hover, a:focus {
 .pointer {
   cursor: pointer;
 }
+.hidden {
+  display: none !important;
+}
 .w100 {
   width: 100% !important;
 }
