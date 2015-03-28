@@ -2,11 +2,13 @@ var
   appConfig = require('../config/app.json'),
   angular = require('angular'),
   webApp = angular.module('smaatoWorldCupChallenge', [
+    require('../logger').name,
     'ct.ui.router.extras',
     'ngMessages',
     'ngMaterial',
     'ngSanitize'
   ])
+    .constant('Smaato.Config', appConfig)
     .config(require('./router'))
     .config(['$mdThemingProvider', function($mdThemingProvider) {
       $mdThemingProvider.theme('error')

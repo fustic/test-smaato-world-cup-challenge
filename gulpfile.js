@@ -8,7 +8,9 @@ var
   runSequence = require('run-sequence'),
   revall = require('gulp-rev-all'),
   templateCache = require('gulp-angular-templatecache'),
-  source = require('vinyl-source-stream');
+  source = require('vinyl-source-stream'),
+  argv = require('yargs').argv,
+  production = argv.staging || process.env.ENVIRONMENT === 'staging' ? false : true;
 
 gulp.task('styles', function () {
   return gulp.src('app/styles/main.css')
@@ -121,7 +123,7 @@ gulp.task('watch', ['browserify', 'connect'], function () {
 gulp.task('build-app', function (callback) {
   runSequence(
     'clean',
-    'browserify-min',
+    'browserify',
     'build',
     'rev',
     'minify-html',
@@ -137,24 +139,7 @@ gulp.task('default', ['clean'], function () {
   gulp.start('build');
 });
 
-gulp.task('browserify', ['cache-templates'], function () {
-
-  var bundleStream = browserify({
-    entries: ['./app/scripts/main.js'],
-    debug: true
-  }).bundle();
-
-  return bundleStream
-    .pipe(source('bundle.min.js'))
-    //    .pipe($.streamify($.uglify()))
-    .pipe($.util.noop())
-    // Output it to our dist folder
-    //.pipe(gulp.dest('dist/scripts/'))
-    // Output it to our dev folder
-    .pipe(gulp.dest('app/scripts/'));
-});
-
-gulp.task('browserify-min', ['cache-templates'], function () {
+gulp.task('browserify', ['app-config', 'cache-templates'], function () {
 
   var bundleStream = browserify({
     entries: ['./app/scripts/main.js'],
@@ -163,8 +148,7 @@ gulp.task('browserify-min', ['cache-templates'], function () {
 
   bundleStream
     .pipe(source('bundle.min.js'))
-    .pipe($.streamify($.uglify()))
-    .pipe($.util.noop())
+    .pipe(production ? $.streamify($.uglify()) : $.util.noop())
     // Output it to our dist folder
     .pipe(gulp.dest('app/scripts/'))
     .pipe(gulp.dest('dist/scripts/'));
@@ -208,4 +192,15 @@ gulp.task('minify-html', function () {
   return gulp.src('dist/**/*.html')
     .pipe($.minifyHtml(opts))
     .pipe(gulp.dest('dist/'));
+});
+
+gulp.task('app-config', function () {
+  var src = ['app/scripts/config/base.json'];
+
+  if (!production) {
+    src.push('app/scripts/config/debug.json');
+  }
+  return gulp.src(src.concat('bower.json'))
+    .pipe($.extend('app.json'))
+    .pipe(gulp.dest('app/scripts/config'));
 });

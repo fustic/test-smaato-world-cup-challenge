@@ -1,15 +1,10 @@
 'use strict';
 
-navigationController.$inject = ['$mdSidenav', 'Duriana.Config', 'UserAuthService'];
+navigationController.$inject = ['$mdSidenav'];
 
-function navigationController($mdSidenav, Config, AuthService) {
+function navigationController($mdSidenav) {
   this.close = function () {
     $mdSidenav('left').close();
-  };
-  this.version = Config.version;
-  this.environment = AuthService.getEnv() ? 'production' : 'staging';
-  this.changeEnv = function changeEnv() {
-    AuthService.changeEnv();
   };
 }
 module.exports = navigationController;
