@@ -1,0 +1,15 @@
+node_modules
+dist
+.tmp
+.sass-cache
+bower_components
+test/bower_components
+.idea
+app/scripts/templates.js
+app/scripts/bundle.min.js
+app/scripts/app.min.js
+app/scripts/vendor.min.js
+**/.DS_Store
+**/*.log
+photorec.ses
+.aws*
