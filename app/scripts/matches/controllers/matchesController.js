@@ -5,7 +5,10 @@ matchesController.$inject = [
 ];
 
 /**
- * @class MatchesController
+ * @class
+ * @name MatchesController
+ * @param {MatchesService} MatchesService
+ * @param {UtilService} UtilService
  */
 function matchesController(MatchesService, UtilService) {
 

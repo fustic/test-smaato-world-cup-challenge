@@ -2,7 +2,7 @@
 
 /**
  * @module smaato.logger
- * @name smaatoLogger
+ * @name SmaatoLogger
  * @description Logger service
  */
 

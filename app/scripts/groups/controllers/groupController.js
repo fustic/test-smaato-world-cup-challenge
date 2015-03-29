@@ -5,7 +5,11 @@ groupController.$inject = [
 ];
 
 /**
- * @class GroupController
+ * @class
+ * @name GroupController
+ * @param {ui.router.$stateParams} $stateParams
+ * @param {GroupsService} GroupsService
+ * @param {UtilService} UtilService
  */
 function groupController($stateParams, GroupsService, UtilService) {
   var groupID = +$stateParams.groupID;

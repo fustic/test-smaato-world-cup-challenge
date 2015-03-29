@@ -5,7 +5,10 @@ groupsController.$inject = [
 ];
 
 /**
- * @class GroupsController
+ * @class
+ * @name GroupsController
+ * @param {GroupsService} GroupsService
+ * @param {UtilService} UtilService
  */
 function groupsController(GroupsService, UtilService) {
 

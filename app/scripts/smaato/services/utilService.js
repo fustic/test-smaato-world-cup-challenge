@@ -8,10 +8,16 @@ utilService.$inject = [
 /**
  * @class
  * @name UtilService
+ * @param {LoggerService} LoggerService
+ * @param {$mdToast} $mdToast
  */
 function utilService(LoggerService, $mdToast) {
-
   return {
+    /**
+     * show Error message at the top right
+     * @param {string} text
+     * @param {Object} error
+     */
     showErrorMessage: function (text, error) {
       var errorDescription = error && error.response ? error.response.errorDescription : '';
       LoggerService.error(text, errorDescription);
@@ -20,6 +26,10 @@ function utilService(LoggerService, $mdToast) {
         position: 'top right'
       });
     },
+    /**
+     * show success message at the top right
+     * @param {string} text
+     */
     showSuccessMessage: function (text) {
       $mdToast.show({
         template: '<md-toast md-theme="success"><span flex>' + text + '<br/></span></md-toast>',

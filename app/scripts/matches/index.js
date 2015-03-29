@@ -2,7 +2,7 @@
 
 /**
  * @module smaato.matches
- * @name smaatoMatches
+ * @name SmaatoMatches
  * @description show matches information
  */
 

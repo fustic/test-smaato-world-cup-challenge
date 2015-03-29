@@ -5,12 +5,20 @@ groupMatchesController.$inject = [
 ];
 
 /**
- * @class GroupMatchesController
+ * @class
+ * @name GroupMatchesController
+ * @param {GroupsService} GroupsService
+ * @param {UtilService} UtilService
+ * @param {$scope} $scope
  */
 function groupMatchesController(GroupsService, UtilService, $scope) {
 
   var
     group = $scope.group,
+    /**
+     * collection of teams fifa codes from giving group
+     * @type {string[]}
+     */
     teamIds = [],
     teamsLen = group.teams.length,
     team;

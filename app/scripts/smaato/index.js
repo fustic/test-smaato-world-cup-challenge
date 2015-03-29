@@ -1,6 +1,9 @@
 var
   appConfig = require('../config/app.json'),
   angular = require('angular'),
+  /**
+  * main module to require all dependencies and run the app
+  * */
   webApp = angular.module('smaatoWorldCupChallenge', [
     require('../logger').name,
     require('../groups').name,
@@ -36,11 +39,10 @@ var
       function ($rootScope, $state, $stateParams, $window) {
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;
-
         $rootScope.$on('$stateChangeSuccess', function () {
           $window.scrollTo(0, 0);
         });
-
-      }]);
+      }
+    ]);
 
 module.exports = webApp;

@@ -5,7 +5,11 @@ matchController.$inject = [
 ];
 
 /**
- * @class MatchController
+ * @class
+ * @name MatchController
+ * @param {$stateParams} $stateParams
+ * @param {MatchesService} MatchesService
+ * @param {UtilService} UtilService
  */
 function matchController($stateParams, MatchesService, UtilService) {
   var matchID = +$stateParams.matchID;

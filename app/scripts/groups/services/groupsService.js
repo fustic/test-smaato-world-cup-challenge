@@ -8,15 +8,33 @@ groupsService.$inject = ['$q', 'Smaato.Config', '$http', 'MatchesService'];
 /**
  * @class
  * @name GroupsService
+ * @param {$q} $q
+ * @param {Smaato.Config} Config
+ * @param {$http} $http
+ * @param {MatchesService} MatchesService
  */
 function groupsService($q, Config, $http, MatchesService) {
 
   var groupsServiceObject = {
+    /**
+     * @this GroupsService
+     * @doc methods
+     * @name getGroups
+     * @description get all groups info
+     * @returns {HttpPromise}
+     */
     getGroups: function getGroups() {
       return $http.get(Config.api.url + Config.api.endPoints.groups, {
         cache: true
       });
     },
+    /**
+     * @this GroupsService
+     * @doc method
+     * @description get information for the group
+     * @param {number} groupID
+     * @returns {Promise}
+     */
     getGroup: function getGroup(groupID) {
       var
         deferred = $q.defer();
@@ -37,6 +55,14 @@ function groupsService($q, Config, $http, MatchesService) {
 
       return deferred.promise;
     },
+    /**
+     * @this GroupsService
+     * @doc method
+     * @name getGroupMatches
+     * @description get all matches for the giving group based on teams fifa codes
+     * @param {string[]} teamIds
+     * @returns {Promise}
+     */
     getGroupMatches: function (teamIds) {
       var
         deferred = $q.defer();
