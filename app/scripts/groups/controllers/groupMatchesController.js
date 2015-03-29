@@ -1,21 +1,31 @@
 'use strict';
 
 groupMatchesController.$inject = [
-  'MatchesService', 'UtilService', '$scope'
+  'GroupsService', 'UtilService', '$scope'
 ];
 
 /**
  * @class GroupMatchesController
  */
-function groupMatchesController(MatchesService, UtilService, $scope) {
+function groupMatchesController(GroupsService, UtilService, $scope) {
 
-  var group = $scope.group;
+  var
+    group = $scope.group,
+    teamIds = [],
+    teamsLen = group.teams.length,
+    team;
+  this.list = [];
 
-  //MatchesService.getGroup(groupID).then(function success(group) {
-  //  this.data = group;
-  //}.bind(this), function error(err) {
-  //  UtilService.showErrorMessage('Can not load group', err);
-  //});
+  while (teamsLen--) {
+    team = group.teams[teamsLen].team;
+    teamIds.push(team.fifa_code);
+  }
+
+  GroupsService.getGroupMatches(teamIds).then(function success(matches) {
+    this.list = matches;
+  }.bind(this), function error(err) {
+    UtilService.showErrorMessage('Can not load group matches', err);
+  });
 }
 
 module.exports = groupMatchesController;

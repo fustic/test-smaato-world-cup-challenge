@@ -4,6 +4,7 @@ var
   webApp = angular.module('smaatoWorldCupChallenge', [
     require('../logger').name,
     require('../groups').name,
+    require('../matches').name,
     require('../templates').name,
     'ct.ui.router.extras',
     'ngMessages',

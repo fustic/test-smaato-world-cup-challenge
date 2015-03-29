@@ -20,6 +20,15 @@ a:hover, a:focus {
 .text-align--left {
   text-align: left !important;
 }
+.text-align--center {
+  text-align: center !important;
+}
+.text-align--right {
+  text-align: right !important;
+}
+.bold {
+  font-weight: bold !important;
+}
 .w100 {
   width: 100% !important;
 }

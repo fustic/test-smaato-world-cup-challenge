@@ -17,6 +17,7 @@ var
     .controller('GroupsController', require('./controllers/groupsController'))
     .controller('GroupController', require('./controllers/groupController'))
     .controller('GroupTeamsChartController', require('./controllers/groupTeamsChartController'))
+    .controller('GroupMatchesController', require('./controllers/groupMatchesController'))
     .directive('groups', require('./directives/groupsDirective'))
     .directive('group', require('./directives/groupDirective'))
     .directive('groupCard', require('./directives/groupCardDirective'))

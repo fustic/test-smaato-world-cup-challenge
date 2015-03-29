@@ -3,13 +3,13 @@
 var
   _ = require('_');
 
-groupsService.$inject = ['$q', 'Smaato.Config', '$http'];
+groupsService.$inject = ['$q', 'Smaato.Config', '$http', 'MatchesService'];
 
 /**
  * @class
  * @name GroupsService
  */
-function groupsService($q, Config, $http) {
+function groupsService($q, Config, $http, MatchesService) {
 
   var groupsServiceObject = {
     getGroups: function getGroups() {
@@ -31,6 +31,20 @@ function groupsService($q, Config, $http) {
         } else {
           deferred.reject();
         }
+      }, function error() {
+        deferred.reject();
+      });
+
+      return deferred.promise;
+    },
+    getGroupMatches: function (teamIds) {
+      var
+        deferred = $q.defer();
+
+      MatchesService.getMatches().then(function success(response) {
+        deferred.resolve(_.filter(response.data, function (match) {
+          return teamIds.indexOf(match.home_team.code) !== -1 && teamIds.indexOf(match.away_team.code) !== -1
+        }));
       }, function error() {
         deferred.reject();
       });

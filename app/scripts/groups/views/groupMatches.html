@@ -1,6 +1,29 @@
 <md-card>
   <md-card-content>
 
+    <md-list>
+      <md-item ng-repeat="match in groupMatches.list" class="group-match">
+        <span class="group-match-time">{{match.datetime | date:'EEEE, MMM d, HH:mm'}}</span>
+        <div class="group-match-score" layout="row" layout-wrap>
 
+          <span flex="" class="text-align--right">
+            <a ng-href="/teams/{{match.home_team.code}}/">
+              <span ng-class="{bold: match.winner_code === match.home_team.code}">{{match.home_team.country}}</span>
+            </a>
+          </span>
+          <span flex="15" class="text-align--center">
+            <a ng-href="/matches/{{match.match_number}}/">
+              <span class="match-score">{{match.home_team.goals}}</span> : <span class="match-score">{{match.away_team.goals}}</span>
+            </a>
+          </span>
+          <span flex="" class="text-align--left">
+            <a ng-href="/teams/{{match.away_team.code}}/">
+              <span ng-class="{bold: match.winner_code === match.away_team.code}">{{match.away_team.country}}</span>
+            </a>
+          </span>
+        </div>
+        <span class="group-match-location">{{match.location}}</span>
+      </md-item>
+    </md-list>
   </md-card-content>
 </md-card>
