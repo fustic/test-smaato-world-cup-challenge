@@ -17,12 +17,7 @@ function appRouter($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
     .state('default', {
       url: '/',
-      views: {
-        'lists@': {
-          template: '<results layout-fill></results>'
-        }
-      },
-      sticky: true
+      template: '<groups layout-fill></groups>'
     });
 }
 

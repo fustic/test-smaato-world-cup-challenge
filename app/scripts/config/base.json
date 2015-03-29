@@ -1,4 +1,11 @@
 {
   "debug": false,
-  "environment": "production"
+  "environment": "production",
+  "api": {
+    "url": "http://worldcup.sfg.io/",
+    "endPoints": {
+      "teams": "teams/",
+      "groups": "teams/group_results/"
+    }
+  }
 }

@@ -3,6 +3,7 @@ var
   angular = require('angular'),
   webApp = angular.module('smaatoWorldCupChallenge', [
     require('../logger').name,
+    require('../groups').name,
     'ct.ui.router.extras',
     'ngMessages',
     'ngMaterial',
@@ -24,6 +25,7 @@ var
     .directive('navigation', require('./directives/navigationDirective'))
     .directive('menuButton', require('./directives/menuButtonDirective'))
     .directive('httpLoader', require('./directives/httpLoaderDirective'))
+    .service('UtilService', require('./services/utilService'))
     .run(['LoggerService', function (LoggerService) {
       LoggerService.consolelog('the app started, ver.: ' + appConfig.version);
     }])
