@@ -1,0 +1,20 @@
+<md-list>
+  <md-item ng-repeat="event in events">
+    <md-item-content>
+      {{event.player}} {{event.time}}"
+      <span ng-switch="event.type_of_event">
+        <i ng-switch-when="substitution-in" class="mdi mdi-arrow-down color-green"></i>
+        <i ng-switch-when="substitution-in halftime" class="mdi mdi-arrow-down color-green">halftime</i>
+        <i ng-switch-when="substitution-out" class="mdi mdi-arrow-up color-red"></i>
+        <i ng-switch-when="substitution-out halftime" class="mdi mdi-arrow-up color-red">halftime</i>
+        <i ng-switch-when="yellow-card" class="mdi mdi-alert-box color-yellow"></i>
+        <i ng-switch-when="yellow-card-second" class="mdi mdi-alert-box color-yellow">"</i>
+        <i ng-switch-when="red-card" class="mdi mdi-alert-box color-red"></i>
+        <i ng-switch-when="goal" class="mdi mdi-bowling color-blue"> GOAL!!</i>
+        <i ng-switch-when="goal-penalty" class="mdi mdi-bowling color-red"> Penalty</i>
+        <i ng-switch-when="goal-own" class="mdi mdi-bowling color-red"> own</i>
+        <span ng-switch-default=""> {{event.type_of_event}}</span>
+      </span>
+    </md-item-content>
+  </md-item>
+</md-list>

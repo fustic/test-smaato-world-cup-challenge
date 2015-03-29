@@ -12,13 +12,13 @@ function appRouter($stateProvider) {
       url: '/matches/',
       template: '<matches layout-fill></matches>'
     });
-  //$stateProvider
-  //  .state('match', {
-  //    url: '/matches/:matchID/',
-  //    templateUrl: '/scripts/matches/views/match.html',
-  //    controller: 'MatchController',
-  //    controllerAs: 'match'
-  //  });
+  $stateProvider
+    .state('match', {
+      url: '/matches/:matchID/',
+      templateUrl: '/scripts/matches/views/match.html',
+      controller: 'MatchController',
+      controllerAs: 'match'
+    });
 
 }
 

@@ -3,7 +3,7 @@
 
     <md-list>
       <md-item ng-repeat="match in groupMatches.list" class="group-match">
-        <span class="group-match-time">{{match.datetime | date:'EEEE, MMM d, HH:mm'}}</span>
+        <span class="match-time">{{match.datetime | date:'EEEE, MMM d, HH:mm'}}</span>
         <div class="group-match-score" layout="row" layout-wrap>
 
           <span flex="" class="text-align--right">
@@ -22,7 +22,7 @@
             </a>
           </span>
         </div>
-        <span class="group-match-location">{{match.location}}</span>
+        <span class="match-location">{{match.location}}</span>
       </md-item>
     </md-list>
   </md-card-content>

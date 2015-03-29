@@ -27,10 +27,10 @@ function groupsService($q, Config, $http, MatchesService) {
             return element.group.id === groupID;
           }, 'group')[0];
         if (group) {
-          deferred.resolve(group.group);
-        } else {
-          deferred.reject();
+          return deferred.resolve(group.group);
         }
+        return deferred.reject();
+
       }, function error() {
         deferred.reject();
       });

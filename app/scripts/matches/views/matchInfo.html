@@ -1,0 +1,19 @@
+<div layout="row" layout-wrap>
+  <span flex="" class="text-align--right">
+    <a ng-href="/teams/{{match.home_team.code}}/">
+      <h2 ng-class="{bold: match.winner_code === match.home_team.code}">{{match.home_team.country}}</h2>
+    </a>
+  </span>
+  <span flex="15" class="text-align--center match-scores">
+    <h2 class="match-score">{{match.home_team.goals}}</h2>
+    <h2>:</h2>
+    <h2 class="match-score">{{match.away_team.goals}}</h2>
+  </span>
+  <span flex="" class="text-align--left">
+    <a ng-href="/teams/{{match.away_team.code}}/">
+      <h2 ng-class="{bold: match.winner_code === match.away_team.code}">{{match.away_team.country}}</h2>
+    </a>
+  </span>
+</div>
+<span class="match-time">{{match.datetime | date:'EEEE, MMM d, HH:mm'}}</span>
+<span class="match-location">{{match.location}}</span>

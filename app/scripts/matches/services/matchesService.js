@@ -16,6 +16,25 @@ function matchesService($q, Config, $http) {
       return $http.get(Config.api.url + Config.api.endPoints.matches, {
         cache: true
       });
+    },
+    getMatch: function getMatch(matchID) {
+      var
+        deferred = $q.defer();
+
+      matchesServiceObject.getMatches().then(function success (response) {
+        var
+          match = _.filter(response.data, {'match_number': matchID})[0];
+
+        if (match) {
+          return deferred.resolve(match);
+        }
+        return deferred.reject();
+
+      }, function error(err) {
+        deferred.reject(err);
+      });
+
+      return deferred.promise;
     }
   };
 

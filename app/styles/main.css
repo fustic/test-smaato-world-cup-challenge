@@ -131,3 +131,15 @@ md-toast {
 md-content {
   height: 100%;
 }
+.color-red {
+  color: #F44336;
+}
+.color-green {
+  color: #4CAF50;
+}
+.color-yellow {
+  color: #FFEB3B;
+}
+.color-blue {
+  color: #2196F3;
+}

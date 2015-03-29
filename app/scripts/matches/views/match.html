@@ -1,0 +1,15 @@
+<md-content layout-fill>
+  <div class="md-whiteframe-z1 match" ng-if="match.data.match_number">
+
+    <match-info match="match.data"></match-info>
+    <div layout="row" layout-wrap>
+      <md-card flex>
+        <md-card-content class="text-align--right" match-events events="match.data.home_team_events"></md-card-content>
+      </md-card>
+      <md-card flex>
+        <md-card-content class="text-align--left" match-events events="match.data.away_team_events"></md-card-content>
+      </md-card>
+    </div>
+  </div>
+
+</md-content>

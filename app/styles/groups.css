@@ -22,9 +22,3 @@
   display: block;
   margin-bottom: 10px;
 }
-.group-match-location, .group-match-time {
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-  font-size: 12px;
-}
