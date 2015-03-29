@@ -1,0 +1,23 @@
+<md-card>
+  <md-card-content>
+    <div class="group-match-score" layout="row" layout-wrap>
+      <span flex class="text-align--right match-card-country">
+        <a ng-href="/teams/{{match.home_team.code}}/">
+          <span ng-class="{bold: match.winner_code === match.home_team.code}">{{match.home_team | matchCountry}}</span>
+        </a>
+      </span>
+      <span flex class="text-align--center">
+        <a ng-href="/matches/{{match.match_number}}/" class="match-card-score">
+          <span class="match-score">{{match.home_team.goals}}</span> : <span class="match-score">{{match.away_team.goals}}</span>
+        </a>
+      </span>
+      <span flex class="text-align--left match-card-country">
+        <a ng-href="/teams/{{match.away_team.code}}/">
+          <span ng-class="{bold: match.winner_code === match.away_team.code}">{{match.away_team | matchCountry}}</span>
+        </a>
+      </span>
+    </div>
+    <span class="group-match-time">{{match.datetime | date:'EEEE, MMM d, HH:mm'}}</span>
+    <span class="group-match-location">{{match.location}}</span>
+  </md-card-content>
+</md-card>

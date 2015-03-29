@@ -1,0 +1,7 @@
+.match-card-score {
+  white-space: nowrap;
+  display: inline-block;
+}
+.match-card-country {
+  white-space: nowrap;
+}
