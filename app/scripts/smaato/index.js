@@ -5,6 +5,7 @@ var
     require('../logger').name,
     require('../groups').name,
     require('../matches').name,
+    require('../teams').name,
     require('../templates').name,
     'ct.ui.router.extras',
     'ngMessages',

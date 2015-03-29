@@ -1,0 +1,61 @@
+<md-content layout-fill>
+  <div class="md-whiteframe-z1 team" ng-if="team.data.country">
+    <h2>{{team.data.country}}</h2>
+    <h3>
+      <a ng-href="/groups/{{team.data.group_id}}/">Group {{team.data.group_letter}}</a>
+    </h3>
+    <div layout="row" layout-wrap>
+      <md-card flex>
+        <md-card-content>
+          <h2>Games played: <b>{{team.data.games_played}}</b></h2>
+          <div layout layout-sm="column">
+            <md-input-container flex>
+              <label>Losses</label>
+              <input ng-model="team.data.losses" disabled class="color-red">
+            </md-input-container>
+            <md-input-container flex>
+              <label>Draws</label>
+              <input ng-model="team.data.draws" disabled>
+            </md-input-container>
+            <md-input-container flex>
+              <label>Wins</label>
+              <input ng-model="team.data.wins" disabled class="color-green">
+            </md-input-container>
+          </div>
+        </md-card-content>
+      </md-card>
+      <md-card flex>
+        <md-card-content>
+          <h2>Points: <b>{{team.data.points}}</b></h2>
+          <div layout layout-sm="column">
+            <md-input-container flex>
+              <label>Goals +</label>
+              <input ng-model="team.data.goals_for" disabled class="color-green">
+            </md-input-container>
+            <md-input-container flex>
+              <label>Goals -</label>
+              <input ng-model="team.data.goals_against" disabled class="color-red">
+            </md-input-container>
+            <md-input-container flex>
+              <label>Goals dif.</label>
+              <input ng-model="team.data.goal_differential" disabled>
+            </md-input-container>
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+
+    <div ng-repeat="match in team.matches">
+      <match-info match="match"></match-info>
+      <div layout="row" layout-wrap>
+        <md-card flex>
+          <md-card-content class="text-align--right" match-events events="match.home_team_events"></md-card-content>
+        </md-card>
+        <md-card flex>
+          <md-card-content class="text-align--left" match-events events="match.away_team_events"></md-card-content>
+        </md-card>
+      </div>
+    </div>
+  </div>
+
+</md-content>

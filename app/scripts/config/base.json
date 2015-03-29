@@ -6,7 +6,9 @@
     "endPoints": {
       "teams": "teams/",
       "groups": "teams/group_results/",
-      "matches": "matches/"
+      "matches": "matches/",
+      "teamsResults": "teams/results/",
+      "teamMatches": "matches/country/"
     }
   }
 }

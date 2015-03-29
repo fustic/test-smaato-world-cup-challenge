@@ -35,6 +35,14 @@ function matchesService($q, Config, $http) {
       });
 
       return deferred.promise;
+    },
+    getTeamMatches: function getTeamMatches(teamID) {
+      return $http.get(Config.api.url + Config.api.endPoints.teamMatches, {
+        cache: true,
+        params: {
+          'fifa_code': teamID
+        }
+      });
     }
   };
 

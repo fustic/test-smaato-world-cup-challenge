@@ -14,7 +14,6 @@ function matchController($stateParams, MatchesService, UtilService) {
 
   MatchesService.getMatch(matchID).then(function success(match) {
     this.data = match;
-    console.log(match);
   }.bind(this), function error(err) {
     UtilService.showErrorMessage('Can not load match', err);
   });
