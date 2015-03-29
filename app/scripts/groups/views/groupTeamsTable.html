@@ -1,0 +1,27 @@
+<md-card>
+  <md-card-content>
+    <table class="group-card-table">
+      <thead>
+      <tr>
+        <th class="text-align--left">Country</th>
+        <th>
+          GD
+          <md-tooltip>
+            Goal differential
+          </md-tooltip>
+        </th>
+        <th>Points</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="team in teams">
+        <td class="text-align--left">
+          <a ng-href="/teams/{{team.team.id}}/">{{team.team.country}}</a>
+        </td>
+        <td>{{team.team.goal_differential}}</td>
+        <td>{{team.team.points}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </md-card-content>
+</md-card>

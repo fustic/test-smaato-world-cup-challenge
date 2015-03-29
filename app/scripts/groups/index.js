@@ -10,14 +10,18 @@ var
   angular = require('angular'),
   groups = angular
     .module('smaatoGroups', [
-      'ct.ui.router.extras'
+      'ct.ui.router.extras',
+      'googlechart'
     ])
     .service('GroupsService', require('./services/groupsService'))
     .controller('GroupsController', require('./controllers/groupsController'))
     .controller('GroupController', require('./controllers/groupController'))
+    .controller('GroupTeamsChartController', require('./controllers/groupTeamsChartController'))
     .directive('groups', require('./directives/groupsDirective'))
     .directive('group', require('./directives/groupDirective'))
     .directive('groupCard', require('./directives/groupCardDirective'))
+    .directive('groupTeamsTable', require('./directives/groupTeamsTableDirective'))
+    .directive('groupTeamsChart', require('./directives/groupTeamsChartDirective'))
     .config(require('./router'));
 
 module.exports = groups;
