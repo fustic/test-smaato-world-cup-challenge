@@ -1,1 +1,12 @@
-groups
+<md-content layout-fill>
+  <div layout="row" layout-wrap>
+    <div
+        flex="25"
+        flex-sm="100"
+        flex-md="50"
+        flex-lg="33"
+        ng-repeat="group in groups.list">
+      <group-card group="group.group"></group-card>
+    </div>
+  </div>
+</md-content>

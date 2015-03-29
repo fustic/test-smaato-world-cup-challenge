@@ -17,6 +17,7 @@ var
     .controller('GroupController', require('./controllers/groupController'))
     .directive('groups', require('./directives/groupsDirective'))
     .directive('group', require('./directives/groupDirective'))
+    .directive('groupCard', require('./directives/groupCardDirective'))
     .config(require('./router'));
 
 module.exports = groups;
