@@ -11,6 +11,10 @@ var
     .constant('Smaato.Config', appConfig)
     .config(require('./router'))
     .config(['$mdThemingProvider', function($mdThemingProvider) {
+      $mdThemingProvider.theme('default')
+        .primaryPalette('light-blue')
+        .accentPalette('orange')
+        .warnPalette('deep-orange');
       $mdThemingProvider.theme('error')
         .primaryPalette('pink');
       $mdThemingProvider.theme('success')
@@ -18,6 +22,7 @@ var
     }])
     .controller('navigationController', require('./controllers/navigationController'))
     .directive('navigation', require('./directives/navigationDirective'))
+    .directive('menuButton', require('./directives/menuButtonDirective'))
     .directive('httpLoader', require('./directives/httpLoaderDirective'))
     .run(['LoggerService', function (LoggerService) {
       LoggerService.consolelog('the app started, ver.: ' + appConfig.version);

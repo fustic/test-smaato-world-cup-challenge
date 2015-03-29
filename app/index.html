@@ -62,6 +62,14 @@
 <section layout="row" flex>
   <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" navigation></md-sidenav>
   <md-content flex class="iView">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <menu-button></menu-button>
+        <span>Smaato World Cup Challenge</span>
+        <!-- fill up the space between left and right area -->
+        <span flex></span>
+      </div>
+    </md-toolbar>
     <div layout="column" layout-fill layout-align="center center" ui-view="lists"></div>
     <div layout="column" layout-fill layout-align="center center" ui-view="item" class="content-popup iItemView"></div>
   </md-content>
