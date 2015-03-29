@@ -3,7 +3,7 @@
 appRouter.$inject = ['$stateProvider'];
 
 /**
- * @name items router
+ * @name groups router
  * @param {ui.router.state.$stateProvider} $stateProvider
  */
 function appRouter($stateProvider) {

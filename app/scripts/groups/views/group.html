@@ -1,9 +1,7 @@
 <md-content layout-fill>
   <div class="md-whiteframe-z1 group" ng-if="group.data.letter">
     <h2 ng-bind-template="Group {{group.data.letter}}"></h2>
-
     <div layout="row" layout-wrap>
-
       <group-teams-table
         flex="100"
         flex-gt-md="50"
@@ -12,6 +10,7 @@
         flex="100"
         flex-gt-md="50"
         teams="group.data.teams"></group-teams-chart>
+      <group-matches flex="100"></group-matches>
     </div>
 
 

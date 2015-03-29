@@ -5,7 +5,8 @@
     "url": "http://worldcup.sfg.io/",
     "endPoints": {
       "teams": "teams/",
-      "groups": "teams/group_results/"
+      "groups": "teams/group_results/",
+      "matches": "matches/"
     }
   }
 }

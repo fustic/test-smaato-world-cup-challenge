@@ -22,6 +22,7 @@ var
     .directive('groupCard', require('./directives/groupCardDirective'))
     .directive('groupTeamsTable', require('./directives/groupTeamsTableDirective'))
     .directive('groupTeamsChart', require('./directives/groupTeamsChartDirective'))
+    .directive('groupMatches', require('./directives/groupMatchesDirective'))
     .config(require('./router'));
 
 module.exports = groups;
